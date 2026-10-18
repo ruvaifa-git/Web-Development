@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration | VOSC Event Hub</title>
+    <meta name="description" content="Add your details, then view your saved registration and demo ticket." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="brand" href="index.html">VOSC</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html#schedule">Schedule</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#my-agenda">My Agenda</a>
+          <a href="registration.html" class="nav-cta" aria-current="page">Registration</a>
+          <a href="dashboard.html">My Registration</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="page-heading">
+        <p class="eyebrow">Domain Discovery Workshop</p>
+        <h1>Registration</h1>
+        <p class="lead">Add your details, then view your saved registration and demo ticket.</p>
+      </div>
+      <div class="register-layout">
+        <section class="register-main" aria-label="Registration form">
+          <p id="registration-scope" class="local-notice"><strong>Frontend prototype.</strong> Registration is saved in this browser only. Nothing is sent to organisers and no seat is reserved.</p>
+        <div id="returning" class="returning" role="status" hidden>
+          <p><strong>✓ A demo record is saved on this device</strong><span>This browser saved a demo for <b id="returning-name"></b> (<span id="returning-email"></span>).</span></p>
+          <div class="returning-actions">
+            <button type="button" class="primary-btn" id="returning-ticket">View my registration</button>
+            <button type="button" class="secondary-btn" id="returning-new">Register another participant</button>
+          </div>
+        </div>
+        <div id="registrationStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        <div id="register-message" class="form-message" role="alert" hidden></div>
+
+        <form id="register-form" class="register-form" aria-describedby="registration-scope" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" maxlength="80" autocomplete="name" aria-describedby="name-error" required />
+            <p class="field-error" id="name-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="name@company.com" maxlength="254" autocomplete="email" aria-describedby="email-error" required />
+            <p class="field-error" id="email-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="role">Role <span class="optional">(optional)</span></label>
+            <select id="role" name="role">
+              <option value="">Select a role</option>
+              <option value="designer">Designer</option>
+              <option value="developer">Developer</option>
+              <option value="researcher">Researcher</option>
+              <option value="student">Student</option>
+            </select>
+          </div>
+
+          <button type="submit" class="primary-btn">Save registration on this device</button>
+          <p class="form-note">Saved on this device only. Organisers have not received it; no seat is reserved.</p>
+        </form>
+
+        </section>
+        <aside class="event-summary" aria-labelledby="summary-title">
+          <h3 id="summary-title">Event at a glance</h3>
+          <ul>
+            <li><span aria-hidden="true">📅</span><div><small>Date</small><strong data-summary="date">To be announced</strong></div></li>
+            <li><span aria-hidden="true">🕘</span><div><small>Time</small><strong data-summary="time">To be announced</strong></div></li>
+            <li><span aria-hidden="true">📍</span><div><small>Venue</small><strong data-summary="venue">To be announced</strong></div></li>
+            <li><span aria-hidden="true">🎟️</span><div><small>Entry</small><strong>Free for registered participants</strong></div></li>
+            <li><span aria-hidden="true">💻</span><div><small>Bring</small><strong>A laptop for the hands-on sessions</strong></div></li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© 2026 VOSC Event Hub</p>
+        <a href="contact.html" data-contact-link>Contact us</a>
+        <a href="index.html">Back to Event Hub</a>
+      </div>
+    </footer>
+    <script src="js/event-config.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

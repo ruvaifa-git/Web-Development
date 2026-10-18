@@ -1,80 +1,11 @@
-# Lost & Found+
+# Lost & Found+ — local frontend demo
 
-A lightweight open-source Lost & Found web application built with HTML, CSS, and vanilla JavaScript.
+Create two local sample accounts to demonstrate: lost report → found report → identifying claim with a linked report → owner review → confirmed return → recovered pair. Sign out and back in to switch personas in the same browser. No information is delivered to other devices.
 
-## Tech Stack
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Browser localStorage
-- Git + GitHub
+All report pages require local sign-in. Browse offers text/type/category/status/location/date filters and sorting; opening a report and returning retains filters. Reset returns to open reports. Reports include image previews and a larger-photo dialog; photos are optional. Text drafts are saved per account/report; photos must be selected again after reopening.
 
-No Node.js, React, Firebase, database, API keys, or backend are required.
+Owners review Pending/Reviewed claims, then confirm a physical return. Confirmation recovers the related pair when the linked report is valid, or only the owner's report otherwise. Every affected claim is resolved in the same saved snapshot. Manually marking a report recovered follows the same coordinated save path. Sending a claim alone does not recover anything.
 
-## Run
-1. Download or clone the repository.
-2. Open `index.html` in Chrome or Edge.
-3. Register and start using the app.
+Migration reads `lf_items` and `lf_claims`, retains the raw legacy arrays, and writes the first successful update to `lf_records`. Malformed data blocks saving and offers a raw metadata backup. Failed new photos are rolled back; original attachments are removed only after metadata commits. Stale edits or changed sign-in during upload retain entered fields and refuse publication.
 
-## MVP
-- Local sign up/login/logout
-- Report lost items
-- Report found items
-- Image preview and local image storage
-- Browse/search/filter reports
-- Item details and contact
-- Claims
-- My reports
-- Edit/delete/mark recovered
-
-## Important limitation
-Authentication and storage are demonstration-only because data is stored in the current browser's localStorage. Passwords are not securely hashed and data is not shared across devices.
-
-## Contribution guide
-1. Pick an issue from GitHub.
-2. Fork the repository.
-3. Create a branch, e.g. `fix/mobile-search`.
-4. Make and test one focused change.
-5. Commit with a clear message.
-6. Push the branch.
-7. Open a Pull Request and link the issue.
-8. Respond to review feedback.
-
-### Suggested issue labels
-`good first issue` `bug` `feature` `frontend` `UI/UX` `documentation` `testing` `accessibility` `security` `performance` `advanced`
-
-## Example issues
-#101 Search button doesn't work on mobile
-#102 Filter does not reset correctly
-#103 Incorrect spelling in empty-state message
-#104 Image preview is too large
-#105 Button alignment is broken
-#106 Date is displayed incorrectly
-#107 Missing loading indicator
-#108 Broken dark-mode icon
-#109 Improve form error messages
-#120 Duplicate items appearing in search
-#121 Search does not handle partial keywords
-#122 Unauthorized user can edit another user's report
-#123 Large image upload fails
-#124 Duplicate item reports can be created
-#125 Recovered status is not updated correctly
-#126 Logout/session handling is inconsistent
-#127 Incorrect item details displayed
-#128 Report form validation can be bypassed
-#129 Search/filter results are inconsistent
-
-## Future contribution opportunities
-- Image similarity matching
-- AI-based matching
-- GPS and maps
-- Location analytics
-- Notifications
-- Real-time chat
-- Ownership verification
-- Admin analytics
-- Database migration to Firebase/Supabase
-- Security hardening
-- Automated testing
-- PWA/mobile support
-- Multilingual support
+Run the sites and checks from the parent folder as described in [the main README](../readme.md) and [TESTING.md](../TESTING.md). The 16 October release passed 51 native checks, 46 Chromium scenarios and 20 real Orca speech-output checks. Browser accounts, reports and claims remain local demo data; there is no server authentication or email delivery.

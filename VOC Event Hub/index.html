@@ -11,23 +11,23 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <nav class="main-nav" aria-label="Main navigation">
-        <a class="brand" href="#top">VOSC</a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">
-          Menu
-        </button>
+        <a class="brand" href="index.html">VOSC</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
         <div class="nav-links" id="nav-links">
-          <a href="#schedul">Schedule</a>
-          <a href="#spekrs">Speakers</a>
-          <a href="#abut">About</a>
-          <a href="#faq">FAQ</a>
-          <a href="#register">Register</a>
+          <a href="index.html#schedule">Schedule</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#my-agenda">My Agenda</a>
+          <a href="registration.html" class="nav-cta">Registration</a>
+          <a href="dashboard.html">My Registration</a>
+          <a href="contact.html">Contact Us</a>
         </div>
       </nav>
     </header>
 
-    <main id="top">
+    <main id="main-content" tabindex="-1"><span id="top"></span>
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Domain Discovery Workshop</p>
@@ -37,8 +37,8 @@
             small-group exercises, and community learning.
           </p>
           <div class="hero-actions">
-            <a class="primary-btn" href="#abut">Learn More</a>
-            <a class="secondary-btn" href="#register">Reserve Your Spot</a>
+            <a class="primary-btn" href="registration.html">Register for the workshop</a>
+            <a class="secondary-btn" href="#about">Learn more</a>
           </div>
         </div>
 
@@ -48,6 +48,30 @@
             alt=""
           />
         </div>
+      </section>
+
+      <!-- Event dates and optional Google Form link are configured in js/event-config.js. -->
+      <section
+        class="countdown"
+        id="countdown"
+        aria-labelledby="countdown-title"
+      >
+        <div class="countdown-info">
+          <p class="eyebrow">Event details</p>
+          <h2 id="countdown-title">Date to be announced</h2>
+          <ul class="event-meta">
+            <li><span aria-hidden="true">📅</span> <time id="event-date">Date to be announced</time></li>
+            <li><span aria-hidden="true">📍</span> <span id="event-venue">Venue to be announced</span></li>
+          </ul>
+        </div>
+        <div class="countdown-timer" id="countdown-timer" hidden role="timer" aria-describedby="countdown-sr">
+          <div class="cd-unit"><span class="cd-num" data-unit="days">--</span><span class="cd-label">Days</span></div>
+          <div class="cd-unit"><span class="cd-num" data-unit="hours">--</span><span class="cd-label">Hours</span></div>
+          <div class="cd-unit"><span class="cd-num" data-unit="minutes">--</span><span class="cd-label">Minutes</span></div>
+          <div class="cd-unit"><span class="cd-num" data-unit="seconds">--</span><span class="cd-label">Seconds</span></div>
+        </div>
+        <p class="countdown-status" id="countdown-status" hidden></p>
+        <p class="sr-only" id="countdown-sr" aria-live="polite"></p>
       </section>
 
       <section id="about" class="content-section">
@@ -63,38 +87,56 @@
       </section>
 
       <section id="schedule" class="content-section">
-        <h2>Schedule</h2>
+        <h2>Schedule</h2><p class="section-note">Illustrative session times; the event date is awaiting confirmation.</p>
         <div class="schedule-grid">
-          <article class="schedule-card">
-            <span class="time">09:00</span>
+          <article class="schedule-card" data-session-id="kickoff" data-start="09:00">
+            <div class="session-top"><span class="time"><time>09:00</time></span><span class="session-flag" hidden></span></div>
             <h3>Welcome and kickoff</h3>
             <p>Set expectations and understand workshop goals.</p>
+            <button type="button" class="agenda-btn" data-session="kickoff" aria-pressed="false"><span class="agenda-icon" aria-hidden="true">＋</span> <span class="agenda-label">Add to My Agenda</span><span class="sr-only">: Welcome and kickoff</span></button>
           </article>
-          <article class="schedule-card">
-            <span class="time">10:30</span>
+          <article class="schedule-card" data-session-id="domain-mapping" data-start="10:30">
+            <div class="session-top"><span class="time"><time>10:30</time></span><span class="session-flag" hidden></span></div>
             <h3>Domain mapping</h3>
             <p>Break down real challenges into opportunities.</p>
+            <button type="button" class="agenda-btn" data-session="domain-mapping" aria-pressed="false"><span class="agenda-icon" aria-hidden="true">＋</span> <span class="agenda-label">Add to My Agenda</span><span class="sr-only">: Domain mapping</span></button>
           </article>
-          <article class="schedule-card">
-            <span class="time">13:00</span>
+          <article class="schedule-card" data-session-id="prototyping" data-start="13:00">
+            <div class="session-top"><span class="time"><time>13:00</time></span><span class="session-flag" hidden></span></div>
             <h3>Hands-on prototyping</h3>
             <p>Turn ideas into experience sketches and working prototypes.</p>
+            <button type="button" class="agenda-btn" data-session="prototyping" aria-pressed="false"><span class="agenda-icon" aria-hidden="true">＋</span> <span class="agenda-label">Add to My Agenda</span><span class="sr-only">: Hands-on prototyping</span></button>
           </article>
         </div>
+      </section>
+
+      <section id="my-agenda" class="content-section agenda-section" aria-labelledby="agenda-title">
+        <div class="agenda-head">
+          <div>
+            <h2 id="agenda-title" tabindex="-1">My Agenda</h2>
+            <p class="section-lead">Sessions you've picked from the schedule. Saved in this browser only, so no registration is needed.</p>
+          </div>
+          <button type="button" class="secondary-btn" id="agenda-clear" hidden>Clear agenda</button>
+        </div>
+        <ol class="agenda-list" id="agenda-list"></ol>
+        <div class="sr-only" id="agenda-status" aria-live="polite" aria-atomic="true"></div>
       </section>
 
       <section id="speakers" class="content-section">
         <h2>Featured speakers</h2>
         <div class="speaker-grid">
           <article class="speaker-card">
+            <span class="speaker-avatar" aria-hidden="true">AK</span>
             <h3>Aisha Khan</h3>
             <p>Product strategist</p>
           </article>
           <article class="speaker-card">
+            <span class="speaker-avatar" aria-hidden="true">DO</span>
             <h3>Daniel Ortiz</h3>
             <p>AI engineering lead</p>
           </article>
           <article class="speaker-card">
+            <span class="speaker-avatar" aria-hidden="true">PN</span>
             <h3>Priya Nair</h3>
             <p>UX researcher</p>
           </article>
@@ -105,48 +147,52 @@
         <h2>Frequently asked questions</h2>
         <div class="faq-list">
           <div class="faq-item active">
-            <div class="faq-question">Who should attend?</div>
-            <div class="faq-answer">This workshop is open to builders, researchers, designers, and curious learners across all experience levels.</div>
+            <button type="button" class="faq-question" aria-expanded="true" aria-controls="faq-answer-1">Who should attend?</button>
+            <div class="faq-answer" id="faq-answer-1">This workshop is open to builders, researchers, designers, and curious learners across all experience levels.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Do I need to bring my own laptop?</div>
-            <div class="faq-answer">Yes, a laptop is recommended so you can take part in the activities and prototyping sessions.</div>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Do I need to bring my own laptop?</button>
+            <div class="faq-answer" id="faq-answer-2" hidden>Yes, a laptop is recommended so you can take part in the activities and prototyping sessions.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Is the event free?</div>
-            <div class="faq-answer">Yes, the workshop is free to attend for registered participants.</div>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Is the event free?</button>
+            <div class="faq-answer" id="faq-answer-3" hidden>Yes, the workshop is free to attend for registered participants.</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Where can I register and view my details?</button>
+            <div class="faq-answer" id="faq-answer-4" hidden>Use Registration in the navigation to fill in the form. My Registration shows records saved in this browser. This frontend prototype does not send registration to organisers or reserve a seat.</div>
           </div>
         </div>
       </section>
 
-      <section id="register" class="content-section registration-wrap">
-        <h4>Reserve your seat</h4>
-        <form id="register-form" class="register-form" novalidate>
-          <label for="name">Full name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required />
-
-          <label for="email">Work email</label>
-          <input id="email" name="email" type="email" placeholder="name@company.com" required />
-
-          <label for="role">Role</label>
-          <select id="role" name="role">
-            <option value="">Select a role</option>
-            <option value="designer">Designer</option>
-            <option value="developer">Developer</option>
-            <option value="researcher">Researcher</option>
-            <option value="student">Student</option>
-          </select>
-
-          <button type="submit" class="primary-btn">Register now</button>
-        </form>
+      <section id="register" class="content-section registration-callout">
+        <h2>Registration</h2>
+        <p class="section-lead">Add your details on the registration page, then revisit your saved registration and demo ticket.</p>
+        <div class="hero-actions">
+          <a href="registration.html" class="primary-btn">Register for the workshop</a>
+          <a href="dashboard.html" class="secondary-btn">My Registration</a>
+        </div>
+        <p class="section-note">Frontend prototype: details stay in this browser. Organisers have not received them and no seat is reserved.</p>
+      </section>
+      <section id="contact" class="content-section contact-callout">
+        <div>
+          <p class="eyebrow">Have a question?</p>
+          <h2>Get in touch</h2>
+          <p>Questions about the programme, registration or accessibility? Visit our contact page.</p>
+        </div>
+        <a href="contact.html" class="primary-btn" data-contact-link>Contact us</a>
       </section>
     </main>
 
-    <div class="site-footer">
-      <p>© 2026 VOSC Event Hub</p>
-      <a href="#top">Back to top</a>
-    </div>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© 2026 VOSC Event Hub</p>
+        <a href="contact.html" data-contact-link>Contact us</a>
+        <a href="index.html">Back to Event Hub</a>
+      </div>
+    </footer>
 
+    <script src="js/event-config.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

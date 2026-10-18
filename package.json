@@ -1,0 +1,14 @@
+{
+  "name": "main-contest-h-round6-fixed",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Frontend-only campus demos; Node is used only for development checks.",
+  "scripts": {
+    "test": "node tests/frontend.test.cjs",
+    "test:browser": "node tests/browser.cjs",
+    "test:screen-reader": "node tests/screen-reader.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.57.0"
+  }
+}

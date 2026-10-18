@@ -2,30 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lost & Found+ | Find what matters</title><link rel="stylesheet" href="style.css">
+<title>Lost & Found+ | Find what matters</title><link rel="stylesheet" href="style.css"><script src="script.js"></script>
 </head>
-<body>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header"><div class="container nav">
 <a class="brand" href="index.html"><span class="brand-mark">+</span><span>Lost & Found<span class="brand-plus">+</span></span></a>
-<nav><a href="items.html">Browse</a><a href="login.html" class="nav-login">Log in</a><a href="register.html" class="btn btn-primary btn-sm">Get started</a></nav>
+<nav><a href="items.html">Browse</a><a href="recovered.html">Recovered</a><a href="my-reports.html" class="nav-member" hidden>My reports</a><a class="nav-member" href="claims.html" hidden>Claims<span class="nav-badge" data-claims-badge hidden></span></a><a href="dashboard.html" class="nav-member" hidden>Dashboard</a><button id="logoutBtn" type="button" class="btn btn-secondary btn-sm nav-member" hidden>Log out</button><a href="login.html" class="nav-guest">Log in</a><a href="register.html" class="btn btn-primary btn-sm nav-guest">Get started</a></nav>
 </div></header>
-<main>
+<main id="main-content" tabindex="-1"><p class="local-notice">Local demo: reports and claims stay in this browser. They are not shared with other devices.</p>
 <section class="hero"><div class="container hero-grid">
 <div><span class="eyebrow">CAMPUS COMMUNITY PLATFORM</span><h1>Lost something?<br><span>Let's find it.</span></h1>
 <p class="hero-copy">A simple place to report lost or found belongings, discover matching reports, and reconnect items with their owners.</p>
 <div class="hero-actions"><a href="report.html?type=lost" class="btn btn-primary">Report a lost item <span>→</span></a><a href="report.html?type=found" class="btn btn-secondary">I found something</a></div>
 <div class="trust-row"><span>●</span> Simple & community-driven <span>•</span> No installation required</div></div>
-<div class="hero-card"><div class="hero-card-top"><span class="status-dot"></span><span>Recent activity</span><span class="live">LIVE</span></div>
-<div class="mini-item"><div class="mini-photo">🎒</div><div><strong>Blue Backpack</strong><small>Found · Library</small></div><span class="pill found">FOUND</span></div>
-<div class="mini-item"><div class="mini-photo">🔑</div><div><strong>Keychain</strong><small>Lost · CSE Block</small></div><span class="pill lost">LOST</span></div>
-<div class="mini-item"><div class="mini-photo">💳</div><div><strong>Student ID Card</strong><small>Found · Cafeteria</small></div><span class="pill found">FOUND</span></div>
+<div class="hero-card"><div class="hero-card-top"><span class="hero-card-icon" aria-hidden="true">🕘</span><span>Recent Reports</span><span class="hero-card-note">Open · newest first</span></div>
+<div id="homeRecent" aria-live="polite"><p class="mini-empty">Loading recent reports…</p></div>
 <a href="items.html" class="view-all">Browse all reports →</a></div>
 </div></section>
 <section class="stats-strip"><div class="container stats"><div><strong>01</strong><span>Report an item</span></div><div><strong>02</strong><span>Browse reports</span></div><div><strong>03</strong><span>Connect & recover</span></div></div></section>
 <section class="features container"><div class="section-heading"><span class="eyebrow">HOW IT WORKS</span><h2>Everything you need to get started.</h2></div>
-<div class="feature-grid"><article><div class="icon-box">↗</div><h3>Report in seconds</h3><p>Add the item details, location, date and your own photo.</p></article><article><div class="icon-box">⌕</div><h3>Search easily</h3><p>Search lost and found reports by item, description or place.</p></article><article><div class="icon-box">♡</div><h3>Reconnect</h3><p>View the reporter's contact details and start the recovery process.</p></article></div></section>
-<section class="cta"><div class="container cta-inner"><div><span class="eyebrow">READY?</span><h2>Help return something today.</h2></div><a href="register.html" class="btn btn-light">Create an account →</a></div></section>
+<div class="feature-grid"><article><div class="icon-box">↗</div><h3>Report in seconds</h3><p>Add the item, category, place and date. A photo is optional.</p></article><article><div class="icon-box">⌕</div><h3>Search easily</h3><p>Search lost and found reports by item, description or place.</p></article><article><div class="icon-box">♡</div><h3>Reconnect</h3><p>View the reporter's contact details and start the recovery process.</p></article></div></section>
+<section class="cta"><div class="container cta-inner"><div><span class="eyebrow">READY?</span><h2>Help return something today.</h2></div><a href="register.html" class="btn btn-light nav-guest">Create an account →</a><a href="report.html?type=found" class="btn btn-light nav-member" hidden>Report a found item →</a></div></section>
 </main>
 <footer><div class="container footer"><span>Lost & Found+</span><span>Built for open-source collaboration.</span></div></footer>
-<script src="script.js"></script>
+
 </body></html>

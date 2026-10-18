@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | VOSC Event Hub</title>
+    <meta name="description" content="Questions about the workshop? Prepare your enquiry here." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="brand" href="index.html">VOSC</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html#schedule">Schedule</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#my-agenda">My Agenda</a>
+          <a href="registration.html" class="nav-cta">Registration</a>
+          <a href="dashboard.html">My Registration</a>
+          <a href="contact.html" aria-current="page">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="page-heading">
+        <p class="eyebrow">Domain Discovery Workshop</p>
+        <h1>Contact Us</h1>
+        <p class="lead">Questions about the workshop? Prepare your enquiry here.</p>
+      </div>
+      <div class="register-layout">
+        <section class="register-main" aria-label="Enquiry form">
+          <p id="contact-scope" class="local-notice"><strong>Frontend prototype.</strong> You can save or download an enquiry draft here. It is not sent to organisers.</p>
+          <p id="google-form-wrap" hidden><a id="google-form-link" class="secondary-btn" target="_blank" rel="noopener noreferrer">Open Google enquiry form <span class="sr-only">(opens in a new tab)</span></a></p>
+          <div id="contact-error" class="form-message is-error" role="alert" hidden></div>
+          <div id="contact-status" class="form-message is-info" hidden></div>
+          <div id="contact-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+          <form id="contact-form" class="register-form" aria-describedby="contact-scope" novalidate>
+            <div class="field">
+              <label for="contact-name">Full name</label>
+              <input id="contact-name" name="name" type="text" maxlength="80" autocomplete="name" aria-describedby="contact-name-error" required />
+              <p id="contact-name-error" class="field-error"></p>
+            </div>
+            <div class="field">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" maxlength="254" autocomplete="email" aria-describedby="contact-email-error" required />
+              <p id="contact-email-error" class="field-error"></p>
+            </div>
+            <div class="field">
+              <label for="contact-topic">Topic</label>
+              <select id="contact-topic" name="topic">
+                <option value="general">General enquiry</option>
+                <option value="registration">Registration</option>
+                <option value="schedule">Schedule and venue</option>
+                <option value="accessibility">Accessibility</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="contact-message">Your question</label>
+              <textarea id="contact-message" name="message" rows="6" minlength="10" maxlength="2000" aria-describedby="contact-message-hint contact-message-error" required></textarea>
+              <p id="contact-message-hint" class="field-hint">10–2,000 characters. Please do not include passwords or sensitive information.</p>
+              <p id="contact-message-error" class="field-error"></p>
+            </div>
+            <button type="submit" class="primary-btn">Save enquiry draft</button>
+            <button type="button" id="download-enquiry" class="secondary-btn">Download enquiry text</button>
+            <p class="form-note">Saving or downloading does not send your enquiry.</p>
+          </form>
+        </section>
+        <aside class="event-summary" aria-labelledby="contact-help-title">
+          <h2 id="contact-help-title">Before you ask</h2>
+          <p>Check the event information for programme details and common questions.</p>
+          <ul>
+            <li><a href="index.html#faq">Frequently asked questions</a></li>
+            <li><a href="index.html#schedule">Workshop schedule</a></li>
+            <li><a href="dashboard.html">Your saved registration</a></li>
+          </ul>
+          <p>Dates and venue are awaiting confirmation. This prototype does not deliver enquiries.</p>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© 2026 VOSC Event Hub</p>
+        <a href="contact.html" data-contact-link>Contact us</a>
+        <a href="index.html">Back to Event Hub</a>
+      </div>
+    </footer>
+    <script src="js/event-config.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
+  </body>
+</html>

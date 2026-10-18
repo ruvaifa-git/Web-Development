@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Registration | VOSC Event Hub</title>
+    <meta name="description" content="Find your saved participant details and download your demo ticket." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="brand" href="index.html">VOSC</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a href="index.html#schedule">Schedule</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#my-agenda">My Agenda</a>
+          <a href="registration.html" class="nav-cta">Registration</a>
+          <a href="dashboard.html" aria-current="page">My Registration</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="page-heading">
+        <p class="eyebrow">Domain Discovery Workshop</p>
+        <h1>My Registration</h1>
+        <p class="lead">Find your saved participant details and download your demo ticket.</p>
+      </div>
+      <section data-registration-dashboard aria-label="Saved registration">
+        <p class="local-notice"><strong>Saved on this device.</strong> These records are local to this browser. They are not official registrations or admission tickets.</p>
+        <div id="register-message" class="form-message" role="alert" hidden></div>
+        <div id="registrationStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        <div id="dashboard-empty" class="empty-state">
+          <h2>No registration saved yet</h2>
+          <p>Fill in the registration form to save your details on this device. Records from another device will not appear here.</p>
+          <a href="registration.html" class="primary-btn">Go to registration</a>
+        </div>
+        <div id="dashboard-records" hidden>
+          <div class="dashboard-toolbar">
+            <div class="field">
+              <label for="registration-select">Saved participant</label>
+              <select id="registration-select"></select>
+            </div>
+            <a href="registration.html" class="secondary-btn">Register another participant</a>
+          </div>
+        <div id="confirmation" class="confirmation" role="region" tabindex="-1" aria-labelledby="confirm-title" aria-describedby="confirm-scope" hidden>
+          <div class="confirm-head">
+            <span class="confirm-emoji" aria-hidden="true">🎉</span>
+            <h2 id="confirm-title" tabindex="-1" aria-describedby="confirm-scope">Demo registration saved</h2>
+            <p id="confirm-scope">Your demo registration is saved on this device. Organisers have not received it.</p>
+          </div>
+          <dl class="confirm-details">
+            <div><dt>Name</dt><dd id="confirm-name"></dd></div>
+            <div><dt>Email</dt><dd id="confirm-email"></dd></div>
+          </dl>
+          <p class="confirm-status">✓ Saved on this device</p>
+          <p class="confirm-note">This local demo record does not reserve a seat.</p>
+
+          <div class="ticket" id="ticket" role="group" aria-label="Your VOSC demo ticket">
+            <div class="ticket-main">
+              <p class="ticket-brand">VOSC EVENT HUB</p>
+              <p class="ticket-event">Domain Discovery Workshop</p>
+              <p class="ticket-name" id="ticket-name"></p>
+              <p class="ticket-role" id="ticket-role"></p>
+              <ul class="ticket-meta">
+                <li><span aria-hidden="true">📅</span> <span id="ticket-date"></span></li>
+                <li><span aria-hidden="true">📍</span> <span id="ticket-venue"></span></li>
+              </ul>
+              <p class="ticket-status">DEMO — local record</p>
+            </div>
+            <div class="ticket-stub">
+              <span class="ticket-ref-label">Ref</span>
+              <span class="ticket-ref" id="ticket-ref"></span>
+            </div>
+          </div>
+
+          <div class="confirm-actions">
+            <button type="button" id="download-ticket" class="primary-btn">Download demo ticket</button>
+            <a id="gcal-link" hidden class="secondary-btn" href="#" target="_blank" rel="noopener">📅 Add to Google Calendar</a>
+            <button type="button" id="ics-download" hidden class="secondary-btn">Download .ics (Outlook / Apple)</button>
+            <a href="index.html" id="back-to-hub" class="secondary-btn">Back to Event Hub</a>
+          </div>
+          <p class="ticket-disclaimer">Demo ticket only; not valid for admission; organisers have not received this record.</p>
+        </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© 2026 VOSC Event Hub</p>
+        <a href="contact.html" data-contact-link>Contact us</a>
+        <a href="index.html">Back to Event Hub</a>
+      </div>
+    </footer>
+    <script src="js/event-config.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
